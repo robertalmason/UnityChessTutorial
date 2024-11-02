@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Tile : MonoBehaviour {
+public abstract class Tile : MonoBehaviour
+{
     public string TileName;
     [SerializeField] protected SpriteRenderer _renderer;
     [SerializeField] private GameObject _highlight;
@@ -14,7 +15,7 @@ public abstract class Tile : MonoBehaviour {
 
     public virtual void Init(int x, int y)
     {
-      
+
     }
 
     void OnMouseEnter()
@@ -29,29 +30,39 @@ public abstract class Tile : MonoBehaviour {
         MenuManager.Instance.ShowTileInfo(null);
     }
 
-    void OnMouseDown() {
-        if(GameManager.Instance.GameState != GameState.HeroesTurn) return;
+    void OnMouseDown()
+    {
+        if (GameManager.Instance.GameState != GameState.HeroesTurn) return;
 
-        if (OccupiedUnit != null) {
-            if(OccupiedUnit.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
-            else {
-                if (UnitManager.Instance.SelectedHero != null) {
-                    var enemy = (BaseEnemy) OccupiedUnit;
+        if (OccupiedUnit != null)
+        {
+            if (OccupiedUnit.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
+            else
+            {
+                if (UnitManager.Instance.SelectedHero != null)
+                {
+                    var enemy = (BaseEnemy)OccupiedUnit;
                     Destroy(enemy.gameObject);
                     UnitManager.Instance.SetSelectedHero(null);
                 }
             }
         }
-        else {
-            if (UnitManager.Instance.SelectedHero != null) {
-                SetUnit(UnitManager.Instance.SelectedHero);
-                UnitManager.Instance.SetSelectedHero(null);
+        else
+        {
+            if (UnitManager.Instance.SelectedHero != null)
+            {
+                if (Walkable)
+                {
+                    SetUnit(UnitManager.Instance.SelectedHero);
+                    UnitManager.Instance.SetSelectedHero(null);
+                }
             }
         }
 
     }
 
-    public void SetUnit(BaseUnit unit) {
+    public void SetUnit(BaseUnit unit)
+    {
         if (unit.OccupiedTile != null) unit.OccupiedTile.OccupiedUnit = null;
         unit.transform.position = transform.position;
         OccupiedUnit = unit;

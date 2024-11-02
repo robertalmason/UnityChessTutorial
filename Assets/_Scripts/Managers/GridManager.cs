@@ -5,7 +5,8 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class GridManager : MonoBehaviour {
+public class GridManager : MonoBehaviour
+{
     public static GridManager Instance;
     [SerializeField] private int _width, _height;
 
@@ -15,7 +16,8 @@ public class GridManager : MonoBehaviour {
 
     private Dictionary<Vector2, Tile> _tiles;
 
-    void Awake() {
+    void Awake()
+    {
         Instance = this;
     }
 
@@ -24,13 +26,14 @@ public class GridManager : MonoBehaviour {
         _tiles = new Dictionary<Vector2, Tile>();
         for (int x = 0; x < _width; x++)
         {
-            for (int y = 0; y < _height; y++) {
+            for (int y = 0; y < _height; y++)
+            {
                 var randomTile = Random.Range(0, 6) == 3 ? _mountainTile : _grassTile;
                 var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
                 spawnedTile.name = $"Tile {x} {y}";
 
-              
-                spawnedTile.Init(x,y);
+
+                spawnedTile.Init(x, y);
 
 
                 _tiles[new Vector2(x, y)] = spawnedTile;
@@ -42,7 +45,8 @@ public class GridManager : MonoBehaviour {
         GameManager.Instance.ChangeState(GameState.SpawnHeroes);
     }
 
-    public Tile GetHeroSpawnTile() {
+    public Tile GetHeroSpawnTile()
+    {
         return _tiles.Where(t => t.Key.x < _width / 2 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
     }
 

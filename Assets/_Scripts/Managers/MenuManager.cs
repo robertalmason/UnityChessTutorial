@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour {
+public class MenuManager : MonoBehaviour
+{
     public static MenuManager Instance;
 
-    [SerializeField] private GameObject _selectedHeroObject,_tileObject,_tileUnitObject;
+    [SerializeField] private GameObject _selectedHeroObject, _tileObject, _tileUnitObject;
 
-    void Awake() {
+    void Awake()
+    {
         Instance = this;
     }
 
-    public void ShowTileInfo(Tile tile) {
+    public void ShowTileInfo(Tile tile)
+    {
 
         if (tile == null)
         {
@@ -24,14 +27,17 @@ public class MenuManager : MonoBehaviour {
         _tileObject.GetComponentInChildren<Text>().text = tile.TileName;
         _tileObject.SetActive(true);
 
-        if (tile.OccupiedUnit) {
+        if (tile.OccupiedUnit)
+        {
             _tileUnitObject.GetComponentInChildren<Text>().text = tile.OccupiedUnit.UnitName;
             _tileUnitObject.SetActive(true);
         }
     }
 
-    public void ShowSelectedHero(BaseHero hero) {
-        if (hero == null) {
+    public void ShowSelectedHero(BaseHero hero)
+    {
+        if (hero == null)
+        {
             _selectedHeroObject.SetActive(false);
             return;
         }

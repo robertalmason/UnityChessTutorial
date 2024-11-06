@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: HexagonFlatTop
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableGridConfig
+  Type: 3
+  Layout: 1
+  GrassPrefab: {fileID: -2024763968435132380, guid: dca4150ae16c8454daaa5a97548a331b, type: 3}
+  MountainPrefab: {fileID: -8588426669606732341, guid: a24179122d86bcb4babf07cd6e5a5f05, type: 3}
+  CellSize: {x: 0.8659766, y: 1, z: 1}
+  GridSwizzle: 2

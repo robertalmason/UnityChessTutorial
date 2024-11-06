@@ -13,7 +13,7 @@ public abstract class Tile : MonoBehaviour
     public bool Walkable => _isWalkable && OccupiedUnit == null;
 
 
-    public virtual void Init(int x, int y)
+    public virtual void Init(Vector3Int coordinate)
     {
 
     }

@@ -83,7 +83,8 @@ MonoBehaviour:
   _isWalkable: 1
   OccupiedUnit: {fileID: 0}
   _baseColor: {r: 0.19103774, g: 0.764151, b: 0.19980107, a: 1}
-  _offsetColor: {r: 0.27337626, g: 0.6603774, b: 0.18378428, a: 1}
+  _offsetColor: {r: 0.27867264, g: 0.5754717, b: 0.20901565, a: 1}
+  _tertiaryColor: {r: 0.07111071, g: 0.3207547, b: 0.09430806, a: 1}
 --- !u!1 &2711269293006761061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6967664765139940966, guid: fe1eafe07240b15429d78102f23d4929, type: 3}
